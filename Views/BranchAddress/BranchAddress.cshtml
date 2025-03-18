@@ -1,0 +1,92 @@
+﻿@model List<Licensing_Web.Models.BranchAddressModel>
+
+@{
+	var title = ViewBag.Title;
+}
+
+<link rel="stylesheet" href="~/css/ImportData.css" asp-append-version="true" />
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+
+<body>
+	<header class="white-bar">
+		<h5>@title </h5>
+	</header>
+	<div class="container-wrap">
+		<div class="container-left">
+			@await Component.InvokeAsync("SideBar", new{activePage="BranchAddress"})
+		</div>
+		<div class="container-right" id="container-right">
+			<div class="table-container">
+				<div class="head-wraps">
+					<span class="date">Branch Number</span>
+					<span class="date">Branch Name</span>
+					<span class="date">Post Code</span>
+					<span class="date">Is Active</span>
+					<span class="records"></span>
+
+				</div>
+
+			@for (int i = 0; i < Model.Count; i++)
+				{
+					var rowcolor = (i % 2 == 0) ? "#fcfcfc" : "#f2f3f7";
+					<div class="data-container" style="background-color:@rowcolor">
+						<span class="date">@Model[i].BranchAddress</span>
+						<span class="date">@Model[i].BranchName</span>
+						<span class="date">@Model[i].PostCode</span>
+						<span class="date">
+								<input type="checkbox" @(Model[i].IsActive ? "checked" : "") disabled />
+						</span>
+						<span class="records">
+							<a href="" class="editBtn" style="text-decoration:none"> Edit / </a>
+							<a href="" id="activeBtn" data-id="@Model[i].Id" style="text-decoration:none">
+								@(Model[i].IsActive ? "Make as Inactive" : "Make as Active")
+							</a>
+						</span>
+
+					</div>
+				}
+			</div>
+
+			<div class="file-right">
+				<span id="importFileBtn"> <img src="~/icons/add.png" />   Import File</span>
+			</div>
+		</div>
+	</div>
+	<script>
+		$(document).ready(function () {
+			$('#importFileBtn').click(function () {
+				$.ajax({
+					url: '@Url.Action("CreateNew", "BranchAddress")',
+					type: 'GET',
+					success: function (result) {
+						$('#container-right').html(result);
+					},
+					error: function (xhr, status, error) {
+						console.error('Error loading partial view:', error);
+					}
+				});
+			})
+
+
+		 $(document).on("click", "#activeBtn",function () {
+				var recordId = $(this).data("id");
+				console.log("clicked");
+				$.ajax({
+					url: `/api/admin/branchaddress/activate/${recordId}`,
+					type: "PUT",
+					success: function (response) {
+						alert(response.message);
+						location.reload();
+					},
+					error: function (xhr) {
+						alert("Error updating record: " + xhr.responseText);
+					}
+			});
+
+		});
+		});
+
+	</script>
+
+
+</body>

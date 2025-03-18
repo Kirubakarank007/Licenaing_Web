@@ -1,0 +1,94 @@
+﻿@{
+    var headerImg = ViewBag.HeaderImage ?? "/asset/Tesco_Header.png";
+    var headerColor = ViewBag.HeaderColor ?? "#467cca";
+    var circleColor = ViewBag.CircleColor ?? "#467cca";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Licensing_Web</title>
+    <script type="importmap"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js"></script>
+ 
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Licensing_Web.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header id="header" style="background-color:@headerColor">
+        <div class="header-wrapper">
+            <div class="logo">
+                <img src=@headerImg alt="Header Logo" id="header-logo" />
+                <h2>Licensing Database</h2>
+            </div>
+            <div class="nav-bar-option">
+               <a href="@Url.Action("Index","Home", new {id = 1})" class="icon-wraper">
+                        <div class="icon-circle" style="background-color:@circleColor">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <h6>search</h6>
+               </a>
+               <a href="@Url.Action("Admin","Admin")" class="icon-wraper">
+                    <div class="icon-circle" style="background-color:@circleColor">
+                        <i class="fas fa-user-plus"></i>
+                    </div>
+                    <h6>Admin</h6>
+                </a>
+                <a href="@Url.Action("report","report")" class="icon-wraper">
+                    <div class="icon-circle" style="background-color:@circleColor">
+                        <i class="fas fa-print"></i>
+                    </div>
+                    <h6>reports</h6>
+                </a>
+                <a href="@Url.Action("ImportData","ImportData")" class="icon-wraper">
+                    <div class="icon-circle" style="background-color:@circleColor">
+                        <i class="fas fa-upload"></i>
+                    </div>
+                    <h6>Import Data</h6>
+                </a>
+                <a href="@Url.Action("Index","SignOut")" class="icon-wraper">
+                    <div class="icon-circle" style="background-color:@circleColor">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <h6>Sign Out</h6>
+                </a>
+            </div>
+            <div class="hide-nav-bar" id="hide-nav-bar">
+                <img src="~/icons/burger-bar.png" alt="Alternate Text" onclick="showNav()" id="show-nav-img"/>
+            </div>
+        </div>
+    </header>
+    <div class="hide-nav-bar-options" id="hide-nav-bar-options">  
+       <a href="@Url.Action("Index","Home")" class="icon-wraper">
+            <p>Search</p>
+       </a>
+        <a href="@Url.Action("Admin","Admin")" class="icon-wraper">
+            <p>Admin</p>
+        </a>
+        <a href="@Url.Action("Report","Report")" class="icon-wraper">
+            <p>Report</p>
+        </a>
+        <a href="@Url.Action("ImportData","ImportData")" class="icon-wraper">
+            <p>Import Data</p>
+        </a>
+        <a href="@Url.Action("Index","SignOut")" class="icon-wraper">
+            <p>Sign out</p>
+        </a>
+    </div>
+    <div class="container-main">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+
+    </div>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+   
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+
+</html>

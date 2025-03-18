@@ -1,0 +1,97 @@
+﻿@model List<Licensing_Web.Models.ReportDataModel>
+
+@{
+    var title = ViewBag.Title;
+}
+
+<link rel="stylesheet" href="~/css/Report.css" asp-append-version="true" />
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+
+<script src="~/js/Report.js" asp-append-version="true"></script>
+
+
+<body>
+    <header class="white-bar">
+        <h5>@title</h5>
+    </header>
+
+    <div class="container">
+        <div class="session-wrap">
+            <div class="report-session">
+                <span>REPORT SECTIONS</span>
+            </div>
+            <div class="category-session">
+                <select id="categoryFilter" class="category-session">
+                    <option value="all">--Select Category--</option>
+                    <option value="Personal Licence">Personal Licence</option>
+                    <option value="Premises Licence">Premises Licence</option>
+                    <option value="DPS">DPS</option>
+                    <option value="Scotland">Scotland</option>
+                    <option value="Petroleum">Petroleum</option>
+                    <option value="lsle of Man">lsle of Man</option>
+                </select>
+            </div>
+        </div>
+        <h6 id="show">Showing 1 to 10 of @Model.Count entries</h6>
+        <p>Showing <select>
+            <option>10</option>
+            <option>25</option>
+            <option>50</option>
+            <option>100</option>
+            </select> entries
+        </p>
+
+        <div class="controller-page">
+            <span>Previous</span>
+            <button>1</button>
+            <span>Next</span>
+
+        </div>
+        <div class="table-container">
+            <div class="head-wraps">
+                <span class="name">Name</span>
+                <span class="type">Section</span>
+                <span class="parameter">Parameter</span>
+                <span class="types">Type</span>
+            </div>
+
+            @for (int i = 0; i < Model.Count; i++)
+            {
+                <div class="data-container" data-category="@Model[i].SectionType" data-has-param="@(string.IsNullOrEmpty(Model[i].Parameter) ? "false" : "true")">
+                    <span class="name">@Model[i].ReportName</span>
+                    <span class="type">@Model[i].SectionType</span>
+                    <span class="parameter">
+                        @if (!string.IsNullOrEmpty(Model[i].Parameter))
+                        {
+                            <span>@Model[i].Parameter</span>
+                            <input type="text" class="param-input"  placeholder="Enter value">
+                        }
+                        else
+                        {
+                            <span></span>
+                        }
+                    </span>
+                    <span class="types">@Model[i].Type</span>
+                </div>
+            }
+        </div>
+
+        <div class="controller-page">
+            <span>Previous</span>
+            <button>1</button>
+            <span>Next</span>
+        </div>
+        <h6 id="shows">Showing 1 to 10 of @Model.Count entries</h6>
+        <p>
+            Showing
+            <select>
+                <option>10</option>
+                <option>25</option>
+                <option>50</option>
+                <option>100</option>
+            </select> entries
+        </p>
+
+    </div>
+
+</body>

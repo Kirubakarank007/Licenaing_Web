@@ -1,0 +1,200 @@
+[
+	{
+		"ReportName": "Applications in Progress List of all in progress applications",
+		"SectionType": "Personal Licence",
+		"Parameter": "",
+		"Type": "Print"
+	},
+	{
+		"ReportName": "Branches by Condition",
+		"SectionType": "Premises Licence",
+		"Parameter": "Conditions",
+		"Type": "Print"
+	},
+	{
+		"ReportName": "Branches by Seasonal Variation",
+		"SectionType": "Premises Licence",
+		"Parameter": "SeasonalVariation",
+		"Type": "Print"
+	},
+	{
+		"ReportName": "Change of Details Sent Report",
+		"SectionType": "Personal Licence",
+		"Parameter": "",
+		"Type": "Print"
+	},
+	{
+		"ReportName": "Colleague Left the Company – Incomplete Application",
+		"SectionType": "Personal Licence",
+		"Parameter": "",
+		"Type": "Print"
+	},
+	{
+		"ReportName": "Current DPS Holders Report",
+		"SectionType": "DPS",
+		"Parameter": "",
+		"Type": "Print"
+	},
+	{
+		"ReportName": "Current Personal Licence Holders Report",
+		"SectionType": "Personal Licence",
+		"Parameter": "",
+		"Type": "Print"
+	},
+	{
+		"ReportName": "Current PL Holders Ready For Exam",
+		"SectionType": "Personal Licence",
+		"Parameter": "Month From",
+		"Type": "Print"
+	},
+	{
+		"ReportName": "DBS Link sent Report",
+		"SectionType": "Personal Licence",
+		"Parameter": "",
+		"Type": "Print"
+	},
+	{
+		"ReportName": "DBS Waiting for Certificate",
+		"SectionType": "Personal Licence",
+		"Parameter": "",
+		"Type": "Print"
+	},
+	{
+		"ReportName": "DPS Changed A list of all current DPS started within the number of weeks",
+		"SectionType": "DPS",
+		"Parameter": "NumberOfWeeks",
+		"Type": "Print"
+	},
+	{
+		"ReportName": "DPS Consent Form Rejections",
+		"SectionType": "DPS",
+		"Parameter": "",
+		"Type": "Print"
+	},
+	{
+		"ReportName": "DPS Left The Company Report",
+		"SectionType": "DPS",
+		"Parameter": "",
+		"Type": "Print"
+	},
+	{
+		"ReportName": "DPS/DPM Exceptions Report",
+		"SectionType": "DPS",
+		"Parameter": "",
+		"Type": "Print"
+	},
+	{
+		"ReportName": "Dual Site DPS/DPM Report A list of all colleagues currently active as a DPS on more than one branch",
+		"SectionType": "DPS",
+		"Parameter": "",
+		"Type": "Print"
+	},
+	{
+		"ReportName": "Fireworks",
+		"SectionType": "",
+		"Parameter": "",
+		"Type": "Print"
+	},
+	{
+		"ReportName": "Full Branches Export",
+		"SectionType": "Premises Licence",
+		"Parameter": "",
+		"Type": "Print"
+	},
+	{
+		"ReportName": "Full Licenced England/Wales Employees Export",
+		"SectionType": "Personal Licence",
+		"Parameter": "",
+		"Type": "Print"
+	},
+	{
+		"ReportName": "Full Licenced Scotland Employees Export",
+		"SectionType": "Scotland",
+		"Parameter": "",
+		"Type": "Print"
+	},
+	{
+		"ReportName": "Incorrect Licence Types",
+		"SectionType": "Personal Licence",
+		"Parameter": "",
+		"Type": "Print"
+	},
+	{
+		"ReportName": "Isle of Man Refresher",
+		"SectionType": "lsle of Man",
+		"Parameter": "",
+		"Type": "Print"
+	},
+	{
+		"ReportName": "Overdue Personal Licence Report",
+		"SectionType": "Personal Licence",
+		"Parameter": "",
+		"Type": "Print"
+	},
+	{
+		"ReportName": "Overdue Premises Licence Report",
+		"SectionType": "Premises Licence",
+		"Parameter": "BranchNumber\t",
+		"Type": "Print"
+	},
+	{
+		"ReportName": "Personal Licences Clean Up",
+		"SectionType": "Personal Licence",
+		"Parameter": "",
+		"Type": "Print"
+	},
+	{
+		"ReportName": "PL Holders Group Summary Summary of Personal Licence Holders",
+		"SectionType": "Personal Licence",
+		"Parameter": "",
+		"Type": "Print"
+	},
+	{
+		"ReportName": "PSC Renewal Fees Report",
+		"SectionType": "Petroleum",
+		"Parameter": "Month/Year (mm/yyyy)",
+		"Type": "Print"
+	},
+	{
+		"ReportName": "Renewal Report BACS (Month)",
+		"SectionType": "Premises Licence",
+		"Parameter": "MonthDate",
+		"Type": "Print"
+	},
+	{
+		"ReportName": "Renewal Report Non-BACS (Month)",
+		"SectionType": "Premises Licence",
+		"Parameter": "MonthDate",
+		"Type": "Print"
+	},
+	{
+		"ReportName": "Scottish Employees Licence",
+		"SectionType": "Scotland",
+		"Parameter": "",
+		"Type": "Print"
+	},
+	{
+		"ReportName": "Scottish Refresher",
+		"SectionType": "Scotland",
+		"Parameter": "",
+		"Type": "Print"
+	},
+	{
+		"ReportName": "Scottish Renewals",
+		"SectionType": "Scotland",
+		"Parameter": "",
+		"Type": "Print"
+	},
+	{
+		"ReportName": "Tobacco Track & Trace",
+		"SectionType": "",
+		"Parameter": "",
+		"Type": "Print"
+	},
+	{
+		"ReportName": "Vapour Recovery Renewal Fees Report",
+		"SectionType": "Petroleum",
+		"Parameter": "MonthDate",
+		"Type": "Print"
+	}
+]

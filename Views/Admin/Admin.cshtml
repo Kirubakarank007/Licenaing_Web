@@ -1,0 +1,83 @@
+﻿@* 
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+ *@
+@{
+
+}
+@{
+	var title = ViewBag.Title;
+}
+<link rel="stylesheet" href="~/css/Admin.css" asp-append-version="true" />
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+
+@* <script src="~/js/ImportData.js" asp-append-version="true"></script>  *@
+
+
+<body>
+	<header class="white-bar">
+		<h5>@title </h5>
+	</header>
+	 <div class="dashboard" >
+		<a href="@Url.Action("ActionType","ActionType")" class="option">
+			<img src="/icons/checklist.png" alt="Action Type" /> 
+         <span>Action Types</span> 
+	 	</a>
+		<a href="@Url.Action("BranchAddress","BranchAddress")" class="option">
+			<img src="/icons/map.png" alt="Branch Addresses" />
+			<span>Branch Addresses</span> 
+	 	</a>
+		<a href="@Url.Action("EmployeeAddress","EmployeeAddress")" class="option">
+			<img src="/icons/location.png" alt="Employee Addresses" />
+			<span>Employee Addresses</span> 
+	 	</a>
+		<a href="@Url.Action("AuthorityDetail","AuthorityDetail")" class="option">
+			<img src="/icons/shield.png" alt="Authority Details" />
+			<span>Authority Details</span> 
+	 	</a>
+		<a href="@Url.Action("ImportData","ImportData")" class="option">
+			<img src="/icons/privacy.png" alt="Authority Type" />
+			<span>Authority Types</span> 
+	 	</a>
+		<a href="@Url.Action("ImportData","ImportData",new { section = "BranchType" })" class="option">
+			<img src="/icons/shopping-cart.png" alt="Branch Types" />
+			<span>Branch Types</span> 
+	 	</a>
+		<a href="@Url.Action("ImportData","ImportData",new { section = "ContactDetails" })" class="option">
+			<img src="/icons/name-card.png" alt="Contact Details" />
+			<span>Contact Details</span> 
+	 	</a>
+		<a href="@Url.Action("ImportData","ImportData",new { section = "CorrespondenceContactTypes" })" class="option">
+			<img src="/icons/men.png" alt="Correspondence Contact Types" />
+			<span>Correspondence Contact Types</span> 
+	 	</a>
+		<a href="@Url.Action("ImportData","ImportData",new { section = "Countries" })" class="option">
+			<img src="/icons/world.png" alt="Countries" />
+			<span>Countries</span> 
+	 	</a>
+		<a href="@Url.Action("ImportData","ImportData",new { section = "Groups" })" class="option">
+			<img src="/icons/people.png" alt="Groups" />
+			<span>Groups</span> 
+	 	</a>
+		<a href="@Url.Action("ImportData","ImportData",new { section = "Hour" })" class="option">
+			<img src="/icons/Clock.png" alt="Hour" />
+			<span>Hour</span> 
+	 	</a>
+		<a href="@Url.Action("ImportData","ImportData",new { section = "LicenseStatus" })" class="option">
+			<img src="/icons/data-analyst.png" alt="License Status" />
+			<span>License Status</span> 
+	 	</a>
+		<a href="@Url.Action("ImportData","ImportData",new { section = "PaymentTypes" })" class="option">
+			<img src="/icons/credit-card.png" alt="Payment Types" />
+			<span>Payment Types</span> 
+	 	</a>
+		<a href="@Url.Action("ImportData","ImportData",new { section = "Status" })" class="option">
+			<img src="/icons/lamp.png" alt="Status" />
+			<span>Status</span> 
+	 	</a> 
+	 	<a href="#" class="option">
+			<img src="/icons/edit.png" alt="Edit Profile" />
+			<span>Edit Profile</span> 
+	 	</a> 
+	 </div>
+	
+</body>

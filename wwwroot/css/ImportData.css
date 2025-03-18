@@ -1,0 +1,161 @@
+﻿body {
+    background-color: #cbcada;
+}
+
+.white-bar {
+    min-height: 50px;
+    background-color: #fff;
+    padding-left: 10px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+}
+
+.container-wrap {
+    display: flex;
+}
+
+.container-left {
+    width: 15%;
+    padding-top: 30px;
+    display: flex;
+    flex-direction: column;
+    background-color: #e5e6ea;
+}
+
+.container-left a {
+        color: black;
+        text-decoration: none;
+        padding: 10px;
+}
+
+.container-right {
+    width: 70%;
+}
+
+.table-container {
+    padding: 30px;
+    background-color: white;
+}
+
+.head-wraps {
+    display: flex;
+    background-color: #535366;
+    align-self: center;
+    line-height: 3;
+    color: white;
+    padding: 10px 0px;
+    font-weight: 500;
+}
+
+.data-container {
+    display: flex;
+    padding: 10px 0px;
+}
+
+.date {
+    padding-left: 15px;
+    width: 33%;
+    align-self: center;
+}
+
+.type {
+    width: 33%;
+    align-self: center;
+}
+
+.records {
+    width: 50%;
+    align-self: center;
+}
+
+.file-container {
+    display: flex;
+    margin: 10px;
+}
+
+.file-left {
+    display: flex;
+    flex-direction: column;
+}
+
+.file-left input {
+        border: 1px solid black;
+        padding: 10px;
+        background-color: #0080ee;
+        color: white;
+}
+
+.file-left select {
+    padding: 10px;
+    margin-top: 20px;
+    border: none;
+    }
+
+.file-right {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.file-right span {
+    border-radius: 2px;
+    padding: 10px 20px;
+    align-self: center;
+    justify-self: flex-end;
+    color: white;
+    background-color: #0081ee;
+    }
+
+ .file-right img {
+    height: 30px;
+    width: 30px;
+    }
+
+.active-link {
+    background-color: #d0d4d8;
+    border-left: 5px solid #0086e8;
+}
+
+@media(max-width:700px) {
+    .container-left {
+        width: 100%;
+        background-color: #cbcada;
+    }
+        .container-left a {
+            padding-left: 20px;
+            font-size: 20px;
+        }
+
+    .container-wrap {
+        flex-direction: column;
+    }
+
+    .container-right {
+        width: 100%;
+    }
+
+    .table-container {
+        padding: 0px;
+    }
+    .file-container{
+        margin-top:5px;
+        padding:0px;
+    }
+    .file-left {
+        width:50%;
+    }
+    .file-left input,select{
+        font-size:12px;
+    }
+    .file-right span{
+        padding:5px;
+        font-size:12px;
+    }
+    .file-right img{
+        height:15px;
+        width:15px;
+    }
+
+}

@@ -1,0 +1,54 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+	var title = ViewBag.Title;
+}
+<link rel="stylesheet" href="~/css/ImportData.css" asp-append-version="true" />
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+
+<body>
+	<header class="white-bar">
+		<h5>@title </h5>
+	</header>
+	<div class="container-wrap">
+		<div class="container-left">
+			@await Component.InvokeAsync("SideBar", new { activePage = "AuthorityDetail" })
+		</div>
+		<div class="container-right" id="container-right">
+			<div class="table-container">
+				<h3>AuthorityDetail Data</h3>
+				<p>Data related to Authority Detail will be displayed here.</p>
+			</div>
+			@* <div class="table-container">
+			<div class="head-wraps">
+				<span class="date">Action Type</span>
+				<span class="type">IsActive</span>
+				<span class="records"></span>
+			</div>
+
+			@for (int i = 0; i < Model.Count; i++)
+			{
+				var rowcolor = (i % 2 == 0) ? "#fcfcfc" : "#f2f3f7";
+				<div class="data-container" style="background-color:@rowcolor">
+					<span class="date">@Model[i].actionType</span>
+					<span class="type">
+						<input type="checkbox" @(Model[i].isActive ? "checked" : "") disabled />
+					</span>
+					<a href="" class="editBtn" data-id="@Model[i].id" data-actiontype="@Model[i].actionType"
+					   data-active="@Model[i].isActive" style="text-decoration:none"> Edit / </a>
+					<a href="" id="activeBtn" data-id="@Model[i].id" style="text-decoration:none">
+						@(Model[i].isActive ? "Make as Unactive" : "Make as Active") /
+					</a>
+					<a href="" id="deleteBtn" data-id="@Model[i].id" style="text-decoration:none">  delete</a>
+
+				</div>
+			}
+		</div>
+
+		<div class="file-right">
+			<span id="createNewBtn"> <img src="~/icons/add.png" />Create New</span>
+		</div> *@
+		</div>
+	</div>
+</body>

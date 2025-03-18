@@ -1,0 +1,46 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+
+}
+<link rel="stylesheet" href="~/css/Index.css" asp-append-version="true" />
+
+<body>
+	<div class="home-page">
+		<div class="home-page-img">
+			<a href="@Url.Action("Index", "Home", new { id = 1 })">
+				<img src="~/asset/Tesco.png" class="clickable-image" alt="home">
+			</a>
+			<a href="@Url.Action("Index", "Home", new { id = 2 })">
+				<img src="~/asset/Booker.png" class="clickable-image">
+			</a>
+			<a href="@Url.Action("Index", "Home", new { id = 3 })">
+				<img src="~/asset/OneStop.png" class="clickable-image">
+			</a>
+		</div>
+		<div class="containers">
+			<div class="tab-container">
+		 		<div class="tab active" id="premises" onclick="switchTab('premises')">Search Premises Licences</div> 
+		 		<div class="tab" id="personal" onclick="switchTab('personal')">Search Personal Licences</div> 
+		 	</div> 
+		 	<div id="premises" class="content active"> 
+		 		<select>
+		 			<option>All owners</option>
+		 			<option>Current Owners</option>
+		 		</select>
+		 		<input type="text" id="text-holder" placeholder="Premises Name, Licence Number">
+		 		<div class="btn-container">
+					<button><i class="fas fa-search"></i> <span>SEARCH</span></button>
+
+		 		</div> 
+		 	</div> 
+		</div>
+	</div>
+
+	<script src="~/js/Index.js">
+				
+	</script>
+</body>
+
+
