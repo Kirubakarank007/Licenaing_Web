@@ -1,9 +1,6 @@
-# This is a basic workflow to help you get started with Actions
 name: CI-build-and-push-image-for-dotnetapp
 
-# Controls when the action will run. 
 on:
-  # Triggers the workflow on push or pull request events but only for the main branch
   push:
     branches: [ main ]
     paths-ignore:
@@ -16,35 +13,30 @@ on:
       - README.md
       - .vscode/**
       - .gitignore
-      
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
- docker:
-    runs-on: ubuntu-latest
+  docker:
+    runs-on: windows-latest  # ✅ Use Windows runner
     steps:
-      -
-        name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v2
-      -
-        name: Set up QEMU
-        uses: docker/setup-qemu-action@v1
-      -
-        name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v1
-      -
-        name: Login to DockerHub
-        uses: docker/login-action@v1
+
+      - name: Enable Windows Containers
+        run: |
+          Write-Host "🔄 Switching to Windows Containers..."
+          Start-Service docker
+          docker version
+
+      - name: Login to DockerHub
+        uses: docker/login-action@v2
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-      -
-        name: Build and push
-        uses: docker/build-push-action@v2
-        with:
-          context: .
-          file: ./Dockerfile
-          push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/dockerfordotnetlicense:latest, ${{ secrets.DOCKERHUB_USERNAME }}/dockerfordotnetlicense:${{ github.run_number }}
+
+      - name: Build and push Docker image
+        run: |
+          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/dockerfordotnetlicense:latest .
+          docker tag ${{ secrets.DOCKERHUB_USERNAME }}/dockerfordotnetlicense:latest ${{ secrets.DOCKERHUB_USERNAME }}/dockerfordotnetlicense:${{ github.run_number }}
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/dockerfordotnetlicense:latest
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/dockerfordotnetlicense:${{ github.run_number }}
