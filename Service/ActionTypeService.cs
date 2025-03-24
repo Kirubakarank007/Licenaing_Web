@@ -49,7 +49,7 @@ namespace Licensing_Web.Service
         {
             var dataBind = await _context.ActionData.FindAsync(id);
 
-            if(dataBind.isActive == true)
+            if(dataBind!.isActive == true)
             {
                 dataBind.isActive = false;
                 _context.ActionData.Update(dataBind);
@@ -73,7 +73,7 @@ namespace Licensing_Web.Service
             {
                 return false;
             }
-            dataBind.actionType = model.actionType;
+            dataBind!.actionType = model.actionType;
             dataBind.isActive = model.isActive;
 
             _context.ActionData.Update(dataBind);
