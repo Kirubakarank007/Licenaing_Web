@@ -1,4 +1,4 @@
-# Base runtime image (Linux-based)
+# Base runtime image
 FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS base
 WORKDIR /app
 EXPOSE 8080
@@ -11,7 +11,7 @@ WORKDIR /src
 COPY ["Licensing_Web.csproj", "."]
 RUN dotnet restore "./Licensing_Web.csproj"
 
-COPY . .
+COPY . .  
 WORKDIR "/src/."
 RUN dotnet build "./Licensing_Web.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
@@ -30,11 +30,11 @@ RUN mkdir -p /app/Data
 # Copy published files
 COPY --from=publish /app/publish .
 
-# Copy SQLite database
+# **Copy SQLite database into the container**
 COPY ImportData.db /app/Data/
 
 # Set correct permissions for SQLite database
-RUN chmod -R 777 /app/Data
+RUN chmod 777 /app/Data/ImportData.db
 
 # Set the entry point for the application
 ENTRYPOINT ["dotnet", "Licensing_Web.dll"]

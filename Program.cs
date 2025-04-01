@@ -10,11 +10,16 @@ builder.Services.AddScoped<ImportDataService>();
 builder.Services.AddScoped<ActionTypeService>();
 builder.Services.AddScoped<BranchAddressService>();
 
-
 builder.Services.AddSession();
 builder.Services.AddRazorPages();
-builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlite(
-    builder.Configuration.GetConnectionString("localDb")));
+
+var connectionString = builder.Environment.IsDevelopment()
+    ? builder.Configuration.GetConnectionString("localDb")
+    : builder.Configuration.GetConnectionString("DefaultConnection");
+
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseSqlite(connectionString));
+
 var app = builder.Build();
 
 
