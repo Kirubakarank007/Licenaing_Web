@@ -24,4 +24,4 @@ jobs:
         context: .  # This points to the root of your repository
         file: Dockerfile  # Adjust this to the correct location of your Dockerfile
         push: true
-        tags: kirubakaran007/licensing_web_poc:testv1.2
+        tags: kirubakaran007/licensing_web_poc:testv1.3
