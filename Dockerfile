@@ -5,7 +5,7 @@ ENV  ASPNETCORE_ENVIRONMENT=Production
 
 COPY . .
 
-COPY ./ImportData.db /app/
+COPY ImportData.db /app/
 
 
 RUN dotnet restore Licensing_Web.csproj
