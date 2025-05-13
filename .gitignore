@@ -10,6 +10,4 @@ obj/
 *.suo
 *.vscode
 
-# Ignore secrets (don't commit sensitive config)
-appsettings.Development.json
-appsettings.json
+
