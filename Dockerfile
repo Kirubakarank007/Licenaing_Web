@@ -14,8 +14,6 @@ USER appuser
 WORKDIR /app
 COPY --from=build /app/out .
 
-# Fix permissions if needed
-RUN chown -R appuser:appuser /app
 
 # Set the entry point to start the application
 ENTRYPOINT ["dotnet", "Licensing_Web.dll"]
