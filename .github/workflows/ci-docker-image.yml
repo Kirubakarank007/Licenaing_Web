@@ -22,6 +22,6 @@ jobs:
       uses: docker/build-push-action@v4
       with:
         context: .  # This points to the root of your repository
-        file: ./Docker  # Adjust this to the correct location of your Dockerfile
+        file: Docker  # Adjust this to the correct location of your Dockerfile
         push: true
         tags: kirubakaran007/licensing_web_poc:test
