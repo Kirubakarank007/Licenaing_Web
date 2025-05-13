@@ -1,15 +1,12 @@
-# Build stage
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /app
 
 COPY . .
+
 RUN dotnet restore Licensing_Web/Licensing_Web.csproj
 RUN dotnet publish Licensing_Web/Licensing_Web.csproj -c Release -o /app/out
 
-# Runtime stage
 FROM mcr.microsoft.com/dotnet/aspnet:8.0
-
-# Create a non-root user and switch to it
 RUN useradd -m appuser
 USER appuser
 
