@@ -16,4 +16,4 @@ USER appuser
 WORKDIR /app
 COPY --from=build /app/out .
 
-ENTRYPOINT ["dotnet", "ContosoPizza.dll"]
+ENTRYPOINT ["dotnet", "Licensing_Web.dll"]
