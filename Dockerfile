@@ -4,6 +4,8 @@ WORKDIR /app
 
 COPY . .
 
+COPY ImportData.db /app/ImportData.db
+
 
 RUN dotnet restore Licensing_Web.csproj
 RUN dotnet publish Licensing_Web.csproj -c Release -o /app/out

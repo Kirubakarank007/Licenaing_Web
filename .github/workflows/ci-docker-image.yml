@@ -15,8 +15,8 @@ jobs:
     - name: Log in to Docker Hub
       uses: docker/login-action@v2
       with:
-        username: kirubakaran007
-        password: Kiruba@123
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{secrets.DOCKERHUB_TOKEN}}
 
     - name: Build and Push
       uses: docker/build-push-action@v4
@@ -24,4 +24,4 @@ jobs:
         context: .  # This points to the root of your repository
         file: Dockerfile  # Adjust this to the correct location of your Dockerfile
         push: true
-        tags: kirubakaran007/licensing_web_poc:test
+        tags: kirubakaran007/licensing_web_poc:testv1
