@@ -1,40 +1,19 @@
-# Base runtime image
-FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS base
-WORKDIR /app
-EXPOSE 8080
-EXPOSE 8081
-
 # Build stage
-FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
-ARG BUILD_CONFIGURATION=Release
-WORKDIR /src
-COPY ["Licensing_Web.csproj", "."]
-RUN dotnet restore "./Licensing_Web.csproj"
-
-COPY . .  
-WORKDIR "/src/."
-RUN dotnet build "./Licensing_Web.csproj" -c $BUILD_CONFIGURATION -o /app/build
-
-# Publish stage
-FROM build AS publish
-ARG BUILD_CONFIGURATION=Release
-RUN dotnet publish "./Licensing_Web.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
-
-# Final runtime stage
-FROM base AS final
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /app
 
-# Ensure database directory exists
-RUN mkdir -p /app/Data
+COPY . .
+RUN dotnet restore Licensing_Web.csproj
+RUN dotnet publish Licensing_Web.csproj -c Release -o /app/out
 
-# Copy published files
-COPY --from=publish /app/publish .
+# Runtime stage
+FROM mcr.microsoft.com/dotnet/aspnet:8.0
 
-# **Copy SQLite database into the container**
-COPY ImportData.db /app/Data/
+# Create a non-root user and switch to it
+RUN useradd -m appuser
+USER appuser
 
-# Set correct permissions for SQLite database
-RUN chmod 777 /app/Data/ImportData.db
+WORKDIR /app
+COPY --from=build /app/out .
 
-# Set the entry point for the application
-ENTRYPOINT ["dotnet", "Licensing_Web.dll"]
+ENTRYPOINT ["dotnet", "ContosoPizza.dll"]
