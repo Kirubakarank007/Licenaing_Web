@@ -59,7 +59,7 @@ namespace Licensing_Web.Service
             {
                 dataBind.isActive = true;
                 _context.ActionData.Update(dataBind);
-                await _context.SaveChangesAsync();
+                 await _context.SaveChangesAsync();
 
             }
 

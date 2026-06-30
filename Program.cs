@@ -2,6 +2,7 @@ using Licensing_Web.Data;
 using Licensing_Web.Service;
 using Microsoft.EntityFrameworkCore;
 
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -19,7 +20,19 @@ var connectionString = builder.Environment.IsDevelopment()
 
 // Register the DbContext with the selected connection string
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlite(connectionString));
+{
+    if (builder.Environment.IsDevelopment())
+    {
+        options.UseSqlite(connectionString);
+    }
+    else
+    {
+        
+        options.UseSqlServer(connectionString);
+    }
+});
+
+
 
 var app = builder.Build();
 
